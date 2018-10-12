@@ -1,25 +1,21 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Hills from "./Hills";
 
 class App extends Component {
+  state = {
+    hills: [
+      { name: "Green HIll", color: "Green", id: 1 },
+      { name: "Gray Hill", color: "Gray", id: 2 },
+      { name: "Red Hill", color: "Red", id: 3 }
+    ]
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>Hill Track</h1>
+        <p>Welcome to the hills</p>
+        <Hills hills={this.state.hills} />
       </div>
     );
   }
