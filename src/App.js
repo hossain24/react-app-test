@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Hills from "./Hills";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/Home";
