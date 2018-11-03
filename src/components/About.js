@@ -1,4 +1,5 @@
 import React from "react";
+import Colorful from "../hoc/Colorful";
 
 const About = () => {
   return (
@@ -19,4 +20,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Colorful(About);
