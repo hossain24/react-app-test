@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 import Hills from "./Hills";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 class App extends Component {
-  state = {
-    hills: [
-      { name: "Green HIll", color: "Green", id: 1 },
-      { name: "Gray Hill", color: "Gray", id: 2 },
-      { name: "Red Hill", color: "Red", id: 3 }
-    ]
-  };
-
   render() {
     return (
-      <div className="App">
-        <h1>Hill Track</h1>
-        <p>Welcome to the hills</p>
-        <Hills hills={this.state.hills} />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Route path="/home" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
