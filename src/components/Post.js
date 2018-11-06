@@ -16,18 +16,29 @@ class Post extends Component {
       });
     }
   **/
-
+  handleClick = () => {
+    this.props.deletePost(this.props.post.id);
+    this.props.history.push("/home");
+  };
   render() {
+    console.log(this.props);
     const post = this.props.post ? (
       <div className="post">
         <h4 className="center">{this.props.post.title}</h4>
         <p>{this.props.post.body}</p>
+        <button className="btn grey" onClick={this.handleClick}>
+          Delete Post
+        </button>
       </div>
     ) : (
       <div className="Center">The post is loading...</div>
     );
 
-    return <div className="container">{post}</div>;
+    return (
+      <div className="container">
+        <p>{post}</p>
+      </div>
+    );
   }
 }
 
@@ -38,4 +49,15 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(Post);
+const mapDispatchToProps = dispatch => {
+  return {
+    deletePost: id => {
+      dispatch({ type: "DELETE_POST", id: id });
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Post);
